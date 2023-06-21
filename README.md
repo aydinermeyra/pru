@@ -5,7 +5,7 @@ rom selenium.webdriver.common.keys import Keys
 driver = webdriver.Chrome()
 
 # Open a website
-driver.get("https://www.example.com")
+driver.get("https://www.pru.com")
 
 # Perform automated actions
 search_box = driver.find_element_by_name("q")
