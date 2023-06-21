@@ -1,0 +1,49 @@
+java.pru
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WebsiteAutomation {
+    public static void main(String[] args) {
+        // Set the path to the chromedriver executable
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+
+        // Create a new instance of the Chrome driver
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the website
+        driver.get("https://www.example.com");
+
+        // Find the login button and click it
+        WebElement loginButton = driver.findElement(By.linkText("Login"));
+        loginButton.click();
+
+        // Enter the username and password
+        WebElement usernameField = driver.findElement(By.id("username"));
+        usernameField.sendKeys("your_username");
+        
+        WebElement passwordField = driver.findElement(By.id("password"));
+        passwordField.sendKeys("your_password");
+
+        // Submit the login form
+        WebElement submitButton = driver.findElement(By.xpath("//input[@type='submit']"));
+        submitButton.click();
+
+        // Search for a product
+        WebElement searchBox = driver.findElement(By.id("search-box"));
+        searchBox.sendKeys("product_name");
+        searchBox.sendKeys(Keys.RETURN);
+
+        // Click on the first search result
+        WebElement firstResult = driver.findElement(By.xpath("//div[@class='search-results']//a[1]"));
+        firstResult.click();
+
+        // Add the product to the cart
+        WebElement addToCartButton = driver.findElement(By.xpath("//button[@class='add-to-cart']"));
+        addToCartButton.click();
+
+        // Close the browser
+        driver.quit();
+    }
+}
